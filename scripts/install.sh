@@ -40,6 +40,13 @@ install -m 644 "$REPO_DIR/deploy/systemd/inferops-model.service" /etc/systemd/sy
 systemctl daemon-reload
 systemctl enable --now inferops-model
 
+log "Installing scripts and health check timer"
+mkdir -p /opt/inferops/scripts
+install -m 755 "$REPO_DIR"/scripts/*.sh /opt/inferops/scripts/
+install -m 644 "$REPO_DIR"/deploy/systemd/inferops-healthcheck.* /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable --now inferops-healthcheck.timer
+
 log "Waiting for API"
 for _ in $(seq 1 20); do
   curl -sf http://127.0.0.1:11434/api/tags > /dev/null && break
