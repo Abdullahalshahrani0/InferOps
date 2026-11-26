@@ -1,0 +1,6 @@
+[Unit]
+Description=InferOps health check
+
+[Service]
+Type=oneshot
+ExecStart=/opt/inferops/scripts/healthcheck.sh
