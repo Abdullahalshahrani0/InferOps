@@ -14,7 +14,7 @@ Prometheus, Grafana and Loki.
 
 ## Roadmap
 - [x] Stage 1 — Repo, host inventory, ADR-001
-- [ ] Stage 2 — Linux model server (Ollama as a systemd service)
+- [x] Stage 2 — Linux model server (Ollama as a systemd service)
 - [ ] Stage 3 — Bash automation
 - [ ] Stage 4 — Python API (FastAPI)
 - [ ] Stage 5 — Docker and Docker Compose
